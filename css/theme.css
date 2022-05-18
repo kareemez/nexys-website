@@ -5141,8 +5141,20 @@ body.lb-disable-scrolling .section-header {
   -o-transition: background-color 0.1s linear;
   -moz-transition: background-color 0.1s linear;
   transition: background-color 0.1s linear;
+  
 }
 
 #up-to-top:hover {
   background: black no-repeat center;
 }
+.section-featured .card-image img{
+  width: 130px;
+}
+
+#out-values-list li img{
+  width: 90px;
+}
+#out-values-list li p{
+  margin: 10px 10px;
+}
+
