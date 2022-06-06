@@ -5157,4 +5157,7 @@ body.lb-disable-scrolling .section-header {
 #out-values-list li p{
   margin: 10px 10px;
 }
-
+.section-team .box {
+  max-width: 230px;
+  margin: auto;
+}
