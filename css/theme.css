@@ -5162,21 +5162,11 @@ body.lb-disable-scrolling .section-header {
   margin: auto;
 }
 /* collapseArea start*/
-.collapseContainer .collapseArea.collapse:not(.show) {
-  display: block;
-  height: 3rem;
-  overflow: hidden;
-}
-
-.collapseContainer .collapseArea.collapsing {
-  height: 3rem;
-}
-
-.collapseContainer a.collapsed::after {
+ a.collapsed.view-more::after {
   content: '+ Show More';
 }
 
-.collapseContainer a:not(.collapsed)::after {
+ a.view-more:not(.collapsed)::after {
   content: '- Show Less';
 }
 /*collapseArea  end */
