@@ -4265,7 +4265,7 @@ ul.list-reset {
 }
 
 .section-footer .footer-menu-list {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .section-footer .footer-menu-list .list-item {
@@ -5161,3 +5161,22 @@ body.lb-disable-scrolling .section-header {
   max-width: 230px;
   margin: auto;
 }
+/* collapseArea start*/
+.collapseContainer .collapseArea.collapse:not(.show) {
+  display: block;
+  height: 3rem;
+  overflow: hidden;
+}
+
+.collapseContainer .collapseArea.collapsing {
+  height: 3rem;
+}
+
+.collapseContainer a.collapsed::after {
+  content: '+ Show More';
+}
+
+.collapseContainer a:not(.collapsed)::after {
+  content: '- Show Less';
+}
+/*collapseArea  end */
