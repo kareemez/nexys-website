@@ -383,11 +383,11 @@
     });
 
     $(window).on("scroll", function () {
-        if ($(this).scrollTop() > header_bar_offsetTop) {
-            header_bar.addClass("sticky").removeClass("unsticky");
-        } else {
-            header_bar.removeClass("sticky").addClass("unsticky");
-        }
+        // if ($(this).scrollTop() > header_bar_offsetTop) {
+        //     header_bar.addClass("sticky").removeClass("unsticky");
+        // } else {
+        //     header_bar.removeClass("sticky").addClass("unsticky");
+        // }
     });
 
 
