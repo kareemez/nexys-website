@@ -5170,3 +5170,7 @@ body.lb-disable-scrolling .section-header {
   content: '- Show Less';
 }
 /*collapseArea  end */
+.titter-parent{
+  height: 250px;
+    overflow: hidden;
+}

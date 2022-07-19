@@ -422,5 +422,12 @@
 
     });
 
+    //
+    $('iframe.twitter-timeline-rendered').ready(function(){
+        let head = $('iframe.twitter-timeline-rendered').contents().find('head');
+        let css =  ".timeline-header, .timeline-footer{display:none ;}";
+        head.append(css);
+    });
+   
 
 })(jQuery);
