@@ -67,7 +67,10 @@
                         </li>  
                         <li class="nav-item">
                             <a class="nav-link" href="#values">VALUES</a>
-                        </li>                        
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team">TEAM</a>
+                        </li>                          
                     </ul>
                 </div>
             </div>
@@ -76,7 +79,14 @@
     <!-- Header end-->
 
     <!-- Intro start-->
-    <div class="section section-slide slide-fullscreen" id="home" style="background: url(images/slider-home-dark.jpg) center no-repeat;">
+    <div class="section section-slide slide-fullscreen video-header" id="home">
+        <div class="v-overlay"></div>
+
+        <!-- The HTML5 video element that will create the background video on the header -->
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+          <source src="video/compressed-video.mp4" type="video/mp4">
+        </video>
+
         <div class="container">
             <div class="section-inner">
                 <div class="row align-items-center">
@@ -635,7 +645,7 @@
 
 
     <!-- Team 1 start-->
-    <section class="section section-team bg-gray-50 p-t-90 p-b-40" id="team">
+    <section class="section section-team bg-gray-50 p-t-90" id="team">
         <div class="container">
             <h3 class="section-heading section-heading--center m-b-45">Meet The Team</h3>
             <ul class="row list-reset text-center ">
@@ -666,10 +676,10 @@
     </section>
     <!-- Team 1 end-->
     <!-- Team 2 start-->
-    <section class="section section-team bg-gray-50 p-t-90 p-b-40" id="team">
+    <section class="section section-team bg-gray-50 p-t-40 p-b-40" id="team">
         <div class="container">
             <h3 class="section-heading section-heading--center m-b-45">Board of Advisors</h3>
-            <ul class="row list-reset m-auto text-center">
+            <ul class="row list-reset m-auto text-center p-b-40">
                 <li class="col-lg-6 col-md-6 col-sm-6">
                     <div class="box box-style-2">
                         <div class="box-image">
