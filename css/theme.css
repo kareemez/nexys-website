@@ -2991,7 +2991,7 @@ ul.list-reset {
   animation: zoomOut .5s;
   visibility: hidden;
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   margin-left: -95px;
   margin-top: -16px;
