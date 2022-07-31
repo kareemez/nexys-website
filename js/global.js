@@ -5,205 +5,218 @@
     // Global variables
     var html_body = $('html, body');
 
+
+    var video = $('#myvideo');
+
+var WindowWidth = $(window).width();
+
+if (WindowWidth < 641) {
+    //It is a small screen
+    video.append("<source src='video/site_intro_compact.mp4' type='video/mp4' >");
+} else {
+    //It is a big screen or desktop
+    video.append("<source src='video/site_intro.mp4' type='video/mp4' >");
+}
+
     //-------------------------------------------------------
     // Config Library
     //-------------------------------------------------------
 
     // Config OWL2
     // Config Slick
-    var slickClass = $('.js-slick');
-    slickClass.each(function () {
-        var option = {
-            accessibility: true,
-            adaptiveheight: false,
-            autoplay: false,
-            autoplayspeed: 5000,
-            arrows: false,
-            asnavfor: null,
-            appendarrows: $(this),
-            appenddots: $(this),
-            prevarrow: '<button type="button" class="slick-prev">Previous</button>',
-            nextarrow: '<button type="button" class="slick-next">Next</button>',
-            centermode: false,
-            centerpadding: '50px',
-            cssease: 'ease',
-            dots: false,
-            dotsclass: 'slick-dots',
-            draggable: true,
-            fade: false,
-            speed: 500,
-            pauseonhover: false,
-            lg: 1, md: this.lg, sm: this.md, xs: this.sm,
-            vertical: false,
-            loop: true,
-            thumb: false
+    // var slickClass = $('.js-slick');
+    // slickClass.each(function () {
+    //     var option = {
+    //         accessibility: true,
+    //         adaptiveheight: false,
+    //         autoplay: false,
+    //         autoplayspeed: 5000,
+    //         arrows: false,
+    //         asnavfor: null,
+    //         appendarrows: $(this),
+    //         appenddots: $(this),
+    //         prevarrow: '<button type="button" class="slick-prev">Previous</button>',
+    //         nextarrow: '<button type="button" class="slick-next">Next</button>',
+    //         centermode: false,
+    //         centerpadding: '50px',
+    //         cssease: 'ease',
+    //         dots: false,
+    //         dotsclass: 'slick-dots',
+    //         draggable: true,
+    //         fade: false,
+    //         speed: 500,
+    //         pauseonhover: false,
+    //         lg: 1, md: this.lg, sm: this.md, xs: this.sm,
+    //         vertical: false,
+    //         loop: true,
+    //         thumb: false
 
-        };
+    //     };
 
-        for (var k in option) {
-            if (option.hasOwnProperty(k)) {
-                if ($(this).attr('data-slick-' + k) != null) {
-                    option[k] = $(this).data('slick-' + k);
-                }
-            }
-        }
+    //     for (var k in option) {
+    //         if (option.hasOwnProperty(k)) {
+    //             if ($(this).attr('data-slick-' + k) != null) {
+    //                 option[k] = $(this).data('slick-' + k);
+    //             }
+    //         }
+    //     }
 
-        if (option.thumb)
-            $(this).slick({
-                accessibility: option.accessibility,
-                adaptiveHeight: option.adaptiveheight,
-                autoplay: option.autoplay,
-                autoplaySpeed: option.autoplayspeed,
-                arrows: option.arrows,
-                asNavFor: option.asnavfor,
-                appendArrows: option.appendarrows,
-                appendDots: option.appenddots,
-                prevArrow: option.prevarrow,
-                nextArrow: option.nextarrow,
-                centerMode: option.centermode,
-                centerPadding: option.centerpadding,
-                cssease: option.cssease,
-                dots: option.dots,
-                dotsClass: option.dotsclass,
-                draggable: option.draggable,
-                pauseOnHover: option.pauseonhover,
-                fade: option.fade,
-                vertical: option.vertical,
-                slidesToShow: option.lg,
-                infinite: option.loop,
-                swipeToSlide: true,
-                customPaging: function(slick, index) {
-                    var portrait = $(slick.$slides[index]).data('thumb');
-                    return '<img src=" ' + portrait + ' "/><div class="bg-overlay"></div>';
-                },
+    //     if (option.thumb)
+    //         $(this).slick({
+    //             accessibility: option.accessibility,
+    //             adaptiveHeight: option.adaptiveheight,
+    //             autoplay: option.autoplay,
+    //             autoplaySpeed: option.autoplayspeed,
+    //             arrows: option.arrows,
+    //             asNavFor: option.asnavfor,
+    //             appendArrows: option.appendarrows,
+    //             appendDots: option.appenddots,
+    //             prevArrow: option.prevarrow,
+    //             nextArrow: option.nextarrow,
+    //             centerMode: option.centermode,
+    //             centerPadding: option.centerpadding,
+    //             cssease: option.cssease,
+    //             dots: option.dots,
+    //             dotsClass: option.dotsclass,
+    //             draggable: option.draggable,
+    //             pauseOnHover: option.pauseonhover,
+    //             fade: option.fade,
+    //             vertical: option.vertical,
+    //             slidesToShow: option.lg,
+    //             infinite: option.loop,
+    //             swipeToSlide: true,
+    //             customPaging: function(slick, index) {
+    //                 var portrait = $(slick.$slides[index]).data('thumb');
+    //                 return '<img src=" ' + portrait + ' "/><div class="bg-overlay"></div>';
+    //             },
 
-                responsive: [
-                    {
-                        breakpoint: 1600,
-                        settings: {
-                            slidesToShow: option.lg
-                        }
-                    },
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: option.md
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: option.md
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: option.sm
-                        }
-                    },
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: option.xs
-                        }
-                    }
-                ]
-            });
-        else
-            $(this).slick({
-                accessibility: option.accessibility,
-                adaptiveHeight: option.adaptiveheight,
-                autoplay: option.autoplay,
-                autoplaySpeed: option.autoplayspeed,
-                arrows: option.arrows,
-                asNavFor: option.asnavfor,
-                appendArrows: option.appendarrows,
-                appendDots: option.appenddots,
-                prevArrow: option.prevarrow,
-                nextArrow: option.nextarrow,
-                centerMode: option.centermode,
-                centerPadding: option.centerpadding,
-                cssease: option.cssease,
-                dots: option.dots,
-                dotsClass: option.dotsclass,
-                draggable: option.draggable,
-                pauseOnHover: option.pauseonhover,
-                fade: option.fade,
-                vertical: option.vertical,
-                slidesToShow: option.lg,
-                infinite: option.loop,
-                swipeToSlide: true,
+    //             responsive: [
+    //                 {
+    //                     breakpoint: 1600,
+    //                     settings: {
+    //                         slidesToShow: option.lg
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 1200,
+    //                     settings: {
+    //                         slidesToShow: option.md
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 992,
+    //                     settings: {
+    //                         slidesToShow: option.md
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 768,
+    //                     settings: {
+    //                         slidesToShow: option.sm
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 576,
+    //                     settings: {
+    //                         slidesToShow: option.xs
+    //                     }
+    //                 }
+    //             ]
+    //         });
+    //     else
+    //         $(this).slick({
+    //             accessibility: option.accessibility,
+    //             adaptiveHeight: option.adaptiveheight,
+    //             autoplay: option.autoplay,
+    //             autoplaySpeed: option.autoplayspeed,
+    //             arrows: option.arrows,
+    //             asNavFor: option.asnavfor,
+    //             appendArrows: option.appendarrows,
+    //             appendDots: option.appenddots,
+    //             prevArrow: option.prevarrow,
+    //             nextArrow: option.nextarrow,
+    //             centerMode: option.centermode,
+    //             centerPadding: option.centerpadding,
+    //             cssease: option.cssease,
+    //             dots: option.dots,
+    //             dotsClass: option.dotsclass,
+    //             draggable: option.draggable,
+    //             pauseOnHover: option.pauseonhover,
+    //             fade: option.fade,
+    //             vertical: option.vertical,
+    //             slidesToShow: option.lg,
+    //             infinite: option.loop,
+    //             swipeToSlide: true,
 
-                responsive: [
-                    {
-                        breakpoint: 1600,
-                        settings: {
-                            slidesToShow: option.lg
-                        }
-                    },
-                    {
-                        breakpoint: 1200,
-                        settings: {
-                            slidesToShow: option.md
-                        }
-                    },
-                    {
-                        breakpoint: 992,
-                        settings: {
-                            slidesToShow: option.md
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: option.sm
-                        }
-                    },
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: option.xs
-                        }
-                    }
-                ]
-            });
+    //             responsive: [
+    //                 {
+    //                     breakpoint: 1600,
+    //                     settings: {
+    //                         slidesToShow: option.lg
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 1200,
+    //                     settings: {
+    //                         slidesToShow: option.md
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 992,
+    //                     settings: {
+    //                         slidesToShow: option.md
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 768,
+    //                     settings: {
+    //                         slidesToShow: option.sm
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 576,
+    //                     settings: {
+    //                         slidesToShow: option.xs
+    //                     }
+    //                 }
+    //             ]
+    //         });
 
-        $(this).on('init', function() {
-            var $firstAnimatingElements = $('div.hero-slide:first-child').find('[data-animation]');
-            doAnimations($firstAnimatingElements);
-        });
-        $(this).on('beforeChange', function(e, slick, currentSlide, nextSlide) {
-            var $animatingElements = $(this).find('[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
-            doAnimations($animatingElements);
-        });
+    //     $(this).on('init', function() {
+    //         var $firstAnimatingElements = $('div.hero-slide:first-child').find('[data-animation]');
+    //         doAnimations($firstAnimatingElements);
+    //     });
+    //     $(this).on('beforeChange', function(e, slick, currentSlide, nextSlide) {
+    //         var $animatingElements = $(this).find('[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
+    //         doAnimations($animatingElements);
+    //     });
 
 
-        function doAnimations(elements) {
-            var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-            elements.each(function() {
-                var $this = $(this);
-                var $animationDelay = $this.data('animation-delay');
-                var $animationType = 'animated ' + $this.data('animation');
-                $this.css({
-                    'animation-delay': $animationDelay,
-                    '-webkit-animation-delay': $animationDelay
-                });
-                $this.addClass($animationType).one(animationEndEvents, function() {
-                    $this.removeClass($animationType);
-                });
-            });
-        }
-    });
+    //     function doAnimations(elements) {
+    //         var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    //         elements.each(function() {
+    //             var $this = $(this);
+    //             var $animationDelay = $this.data('animation-delay');
+    //             var $animationType = 'animated ' + $this.data('animation');
+    //             $this.css({
+    //                 'animation-delay': $animationDelay,
+    //                 '-webkit-animation-delay': $animationDelay
+    //             });
+    //             $this.addClass($animationType).one(animationEndEvents, function() {
+    //                 $this.removeClass($animationType);
+    //             });
+    //         });
+    //     }
+    // });
 
-    $(window).on('load', function () {
-        $('.caption-heading').css('visibility', 'visible').addClass('fadeInUp');
-        $('.caption-text').css('visibility', 'visible').addClass('fadeInUp');
-        $('.caption-button').css('visibility', 'visible').addClass('fadeInUp');
-        $('.section-content-image').css('visibility', 'visible').addClass('fadeInRight');
-    });
+    // $(window).on('load', function () {
+    //     $('.caption-heading').css('visibility', 'visible').addClass('fadeInUp');
+    //     $('.caption-text').css('visibility', 'visible').addClass('fadeInUp');
+    //     $('.caption-button').css('visibility', 'visible').addClass('fadeInUp');
+    //     $('.section-content-image').css('visibility', 'visible').addClass('fadeInRight');
+    // });
 
-    // Config Animsition
+   // Config Animsition
     $(".animsition").animsition({
         inClass: 'fade-in',
         outClass: 'fade-out',
@@ -224,14 +237,14 @@
         transition: function(url){ window.location.href = url; }
     });
 
-    // Couter up
-    var counterUp = $(".counterUp");
-    if (counterUp) {
-        counterUp.counterUp({
-            delay: 10,
-            time: 1000
-        });
-    }
+    // // Couter up
+    // var counterUp = $(".counterUp");
+    // if (counterUp) {
+    //     counterUp.counterUp({
+    //         delay: 10,
+    //         time: 1000
+    //     });
+    // }
 
     // WOW JS
     function afterReveal (el) {
@@ -252,96 +265,96 @@
     //-------------------------------------------------------
 
 
-    // Youtube Popup
-    $.fn.YouTubePopUp = function(options) {
+    // // Youtube Popup
+    // $.fn.YouTubePopUp = function(options) {
 
-        var YouTubePopUpOptions = $.extend({
-            autoplay: 1
-        }, options );
+    //     var YouTubePopUpOptions = $.extend({
+    //         autoplay: 1
+    //     }, options );
 
-        $(this).on('click', function (e) {
+    //     $(this).on('click', function (e) {
 
-            var youtubeLink = $(this).attr("href");
-            var split_c = '';
-            var split_n = 0;
+    //         var youtubeLink = $(this).attr("href");
+    //         var split_c = '';
+    //         var split_n = 0;
 
-            if( youtubeLink.match(/(youtube.com)/) ){
-                split_c = "v=";
-                split_n = 1;
-                var videoEmbedLink = '';
-            }
+    //         if( youtubeLink.match(/(youtube.com)/) ){
+    //             split_c = "v=";
+    //             split_n = 1;
+    //             var videoEmbedLink = '';
+    //         }
 
-            if( youtubeLink.match(/(youtu.be)/) || youtubeLink.match(/(vimeo.com\/)+[0-9]/) ){
-                split_c = "/";
-                split_n = 3;
-            }
+    //         if( youtubeLink.match(/(youtu.be)/) || youtubeLink.match(/(vimeo.com\/)+[0-9]/) ){
+    //             split_c = "/";
+    //             split_n = 3;
+    //         }
 
-            if( youtubeLink.match(/(vimeo.com\/)+[a-zA-Z]/) ){
-                split_c = "/";
-                split_n = 5;
-            }
+    //         if( youtubeLink.match(/(vimeo.com\/)+[a-zA-Z]/) ){
+    //             split_c = "/";
+    //             split_n = 5;
+    //         }
 
-            var getYouTubeVideoID = youtubeLink.split(split_c)[split_n];
+    //         var getYouTubeVideoID = youtubeLink.split(split_c)[split_n];
 
-            var cleanVideoID = getYouTubeVideoID.replace(/(&)+(.*)/, "");
+    //         var cleanVideoID = getYouTubeVideoID.replace(/(&)+(.*)/, "");
 
-            if( youtubeLink.match(/(youtu.be)/) || youtubeLink.match(/(youtube.com)/) ){
-                videoEmbedLink = "https://www.youtube.com/embed/"+cleanVideoID+"?autoplay="+YouTubePopUpOptions.autoplay+"";
-            }
+    //         if( youtubeLink.match(/(youtu.be)/) || youtubeLink.match(/(youtube.com)/) ){
+    //             videoEmbedLink = "https://www.youtube.com/embed/"+cleanVideoID+"?autoplay="+YouTubePopUpOptions.autoplay+"";
+    //         }
 
-            if( youtubeLink.match(/(vimeo.com\/)+[0-9]/) || youtubeLink.match(/(vimeo.com\/)+[a-zA-Z]/) ){
-                videoEmbedLink = "https://player.vimeo.com/video/"+cleanVideoID+"?autoplay="+YouTubePopUpOptions.autoplay+"";
-            }
+    //         if( youtubeLink.match(/(vimeo.com\/)+[0-9]/) || youtubeLink.match(/(vimeo.com\/)+[a-zA-Z]/) ){
+    //             videoEmbedLink = "https://player.vimeo.com/video/"+cleanVideoID+"?autoplay="+YouTubePopUpOptions.autoplay+"";
+    //         }
 
-            $("body").append('<div class="YouTubePopUp-Wrap YouTubePopUp-animation"><div class="YouTubePopUp-Content"><span class="YouTubePopUp-Close"></span><iframe src="'+videoEmbedLink+'" allowfullscreen></iframe></div></div>');
+    //         $("body").append('<div class="YouTubePopUp-Wrap YouTubePopUp-animation"><div class="YouTubePopUp-Content"><span class="YouTubePopUp-Close"></span><iframe src="'+videoEmbedLink+'" allowfullscreen></iframe></div></div>');
 
-            if( $('.YouTubePopUp-Wrap').hasClass('YouTubePopUp-animation') ){
-                setTimeout(function() {
-                    $('.YouTubePopUp-Wrap').removeClass("YouTubePopUp-animation");
-                }, 600);
-            }
+    //         if( $('.YouTubePopUp-Wrap').hasClass('YouTubePopUp-animation') ){
+    //             setTimeout(function() {
+    //                 $('.YouTubePopUp-Wrap').removeClass("YouTubePopUp-animation");
+    //             }, 600);
+    //         }
 
-            $(".YouTubePopUp-Wrap, .YouTubePopUp-Close").click(function(){
-                $(".YouTubePopUp-Wrap").addClass("YouTubePopUp-Hide").delay(515).queue(function() { $(this).remove(); });
-            });
+    //         $(".YouTubePopUp-Wrap, .YouTubePopUp-Close").click(function(){
+    //             $(".YouTubePopUp-Wrap").addClass("YouTubePopUp-Hide").delay(515).queue(function() { $(this).remove(); });
+    //         });
 
-            e.preventDefault();
+    //         e.preventDefault();
 
-        });
+    //     });
 
-        $(document).keyup(function(e) {
+    //     $(document).keyup(function(e) {
 
-            if ( e.keyCode == 27 ) {
-                $('.YouTubePopUp-Wrap, .YouTubePopUp-Close').click();
-            }
+    //         if ( e.keyCode == 27 ) {
+    //             $('.YouTubePopUp-Wrap, .YouTubePopUp-Close').click();
+    //         }
 
-        });
+    //     });
 
-    };
+    // };
 
-    $("a.popUpVideo").YouTubePopUp();
-
-
-    // Blog modal
-    var blog_modal = $('#blogModal');
+    // $("a.popUpVideo").YouTubePopUp();
 
 
-    blog_modal.on('show.bs.modal', function () {
-        $(this).find('.modal-dialog').attr('class', 'modal-dialog  ' + 'fadeIn' + '  animated');
-    });
+    // // Blog modal
+    // var blog_modal = $('#blogModal');
 
-    blog_modal.on('hide.bs.modal', function () {
-        $(this).find('.modal-dialog').attr('class', 'modal-dialog  ' + 'fadeOut' + '  animated');
-    });
 
-    var wHeight = $(window).height();
-    var slide = $('.slide-fullscreen');
-    slide.height(wHeight);
+    // blog_modal.on('show.bs.modal', function () {
+    //     $(this).find('.modal-dialog').attr('class', 'modal-dialog  ' + 'fadeIn' + '  animated');
+    // });
 
-    $(window).on('resize', function (){
-        wHeight = $(window).height();
-        slide.height(wHeight);
-    });
+    // blog_modal.on('hide.bs.modal', function () {
+    //     $(this).find('.modal-dialog').attr('class', 'modal-dialog  ' + 'fadeOut' + '  animated');
+    // });
+
+    // var wHeight = $(window).height();
+    // var slide = $('.slide-fullscreen');
+    // slide.height(wHeight);
+
+    // $(window).on('resize', function (){
+    //     wHeight = $(window).height();
+    //     slide.height(wHeight);
+    // });
 
     // Back To Top
     var offset = 450;
@@ -362,14 +375,14 @@
         return false;
     });
 
-    lightbox.option({
-        'resizeDuration': 200,
-        'wrapAround': true,
-        disableScrolling: true
-    });
+    // lightbox.option({
+    //     'resizeDuration': 200,
+    //     'wrapAround': true,
+    //     disableScrolling: true
+    // });
 
     // Tooltip
-    $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="tooltip"]').tooltip();
 
     // Header and Scroll
 
@@ -395,7 +408,7 @@
     var topMenu = header_bar,
         topMenuHeight = topMenu.outerHeight()+15,
         // All list items
-        menuItems = topMenu.find(".nav-item a"),
+        menuItems = topMenu.find(".nav-item a:not(.c-nav-item)"),
         // Anchors corresponding to menu items
         scrollItems = menuItems.map(function(){
             var item = $($(this).attr("href"));
@@ -429,5 +442,7 @@
         head.append(css);
     });
    
+
+
 
 })(jQuery);

@@ -99,6 +99,7 @@ a:active {
 
 a:hover {
   color: #458cff;
+  cursor: pointer;
 }
 
 a:active {
