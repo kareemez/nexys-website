@@ -5221,7 +5221,7 @@ body.lb-disable-scrolling .section-header {
 
 @media (pointer: coarse) and (hover: none) {
   .video-header {
-    background: url('images/slider-home-dark.jpg') black no-repeat center center scroll;
+    background: url('../images/slider-home-dark.jpg') rgb(255, 255, 255) no-repeat center center scroll;
   }
 
   .video-header video {
