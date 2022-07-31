@@ -83,16 +83,17 @@
 
     <!-- Intro start-->
     <div class="section section-slide slide-fullscreen video-header" id="home">
+      
         <div class="v-overlay"></div>
-
         <!-- The HTML5 video element that will create the background video on the header -->
         <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-          <source src="video/site_intro.mp4" type="video/mp4">
+            <source src="video/site_intro_compact.mp4"  type="video/mp4" media="(min-width:321px)">
+            <source src="video/site_intro.mp4"  type="video/mp4" media="(min-width:961px)">
         </video>
 
         <div class="container">
             <div class="section-inner">
-                <div class="row align-items-center">
+                <div class="row align-items-center ">
                     <div class="col-md-offset-2 col-lg-4 col-md-4">
                         <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
                             <!-- Bootstrap carousel indicators [nav] -->
