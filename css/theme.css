@@ -5220,8 +5220,8 @@ body.lb-disable-scrolling .section-header {
 
 @media all and (min-width:321px) and (max-width: 641px){ /* smartphones, iPhone, portrait 480x320 phones */ 
   .video-header {
-    margin-bottom: -300px;
-    margin-top: -250px;
+    margin-bottom: -190px;
+    margin-top: -100px;
   }
   .video-header .v-overlay{display: none;}
   .video-header video {
