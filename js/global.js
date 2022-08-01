@@ -17,6 +17,7 @@ if (WindowWidth < 641) {
     //It is a big screen or desktop
     video.append("<source src='video/site_intro.mp4' type='video/mp4' >");
 }
+video.play();
 
     //-------------------------------------------------------
     // Config Library
